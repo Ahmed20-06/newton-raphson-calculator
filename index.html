@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>طريقة نيوتن رافسون</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <span class="badge">Numerical Methods</span>
+      <h1>طريقة نيوتن–رافسون</h1>
+      <p>أدخل الدالة والمشتقة والقيمة الابتدائية، وسيحسب التطبيق قيم التقارب خطوة بخطوة.</p>
+      <div class="formula" dir="ltr">x<sub>i+1</sub> = x<sub>i</sub> − f(x<sub>i</sub>) / f′(x<sub>i</sub>)</div>
+    </header>
+
+    <section class="card form-card">
+      <form id="solverForm" novalidate>
+        <div class="grid">
+          <label>الدالة f(x)
+            <input id="functionInput" value="x^3 - x - 2" autocomplete="off" dir="ltr">
+          </label>
+          <label>المشتقة f′(x)
+            <input id="derivativeInput" value="3*x^2 - 1" autocomplete="off" dir="ltr">
+          </label>
+          <label>القيمة الابتدائية x₀
+            <input id="x0Input" type="number" value="2" step="any" dir="ltr">
+          </label>
+          <label>عدد التكرارات
+            <input id="iterationsInput" type="number" value="3" min="1" max="50" dir="ltr">
+          </label>
+          <label>درجة الدقة ε
+            <input id="toleranceInput" type="number" value="0.000001" min="0" step="any" dir="ltr">
+          </label>
+        </div>
+        <div class="actions">
+          <button type="submit">احسب الحل</button>
+          <button id="resetBtn" class="secondary" type="button">إعادة المثال</button>
+        </div>
+        <p class="hint">العمليات المدعومة: + − * / ^ والأقواس، والدوال sin, cos, tan, sqrt, log, exp, abs، والثابتان pi و e.</p>
+        <p id="error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="results" class="card results hidden" aria-live="polite">
+      <div class="result-head">
+        <div><span>الحل التقريبي</span><strong id="rootValue" dir="ltr"></strong></div>
+        <div><span>قيمة |f(x)|</span><strong id="residualValue" dir="ltr"></strong></div>
+        <div><span>الحالة</span><strong id="statusValue"></strong></div>
+      </div>
+      <h2>مسار الانتقال</h2>
+      <div id="path" class="path" dir="ltr"></div>
+      <h2>جدول التكرارات</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>i</th><th>xᵢ</th><th>f(xᵢ)</th><th>f′(xᵢ)</th><th>xᵢ₊₁</th><th>|الفرق|</th></tr></thead>
+          <tbody id="stepsBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card explanation">
+      <h2>كيف يعمل البرنامج؟</h2>
+      <ol>
+        <li>يبدأ من القيمة التي أدخلها المستخدم: x₀.</li>
+        <li>يعوّض في القانون للحصول على x₁.</li>
+        <li>يستخدم x₁ للحصول على x₂، ثم x₂ للحصول على x₃، وهكذا.</li>
+        <li>يتوقف عند الوصول للدقة المطلوبة أو انتهاء عدد التكرارات.</li>
+      </ol>
+    </section>
+  </main>
+  <footer>Newton–Raphson Web Calculator</footer>
+  <script src="script.js"></script>
+</body>
+</html>

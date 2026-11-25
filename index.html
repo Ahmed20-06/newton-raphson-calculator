@@ -48,9 +48,14 @@
         <div><span>الحل التقريبي</span><strong id="rootValue" dir="ltr"></strong></div>
         <div><span>قيمة |f(x)|</span><strong id="residualValue" dir="ltr"></strong></div>
         <div><span>الحالة</span><strong id="statusValue"></strong></div>
+        <div><span>عدد مرات التعويض</span><strong id="iterationsValue" dir="ltr"></strong></div>
       </div>
       <h2>مسار الانتقال</h2>
       <div id="path" class="path" dir="ltr"></div>
+      <h2>الرسم البياني للدالة ونقاط نيوتن–رافسون</h2>
+      <p class="chart-note">النقاط الملوّنة تمثل (xᵢ, f(xᵢ))، والخطوط المتقطعة تمثل المماسات التي تقطع محور x عند القيمة التالية.</p>
+      <div class="chart-wrap"><canvas id="functionChart" width="1000" height="520" aria-label="الرسم البياني للدالة وخطوات نيوتن رافسون"></canvas></div>
+      <div class="chart-controls"><label>بداية مجال الرسم<input id="chartMin" type="number" step="any" dir="ltr"></label><label>نهاية مجال الرسم<input id="chartMax" type="number" step="any" dir="ltr"></label><button id="redrawBtn" type="button" class="secondary">إعادة رسم</button></div>
       <h2>جدول التكرارات</h2>
       <div class="table-wrap">
         <table>
